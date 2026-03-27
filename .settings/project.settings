@@ -67,11 +67,7 @@
         "show" : true,
         "field" : "DIRECTORY",
         "name" : "FILE_PATH",
-<<<<<<< HEAD
         "value" : "\"C:/Program Files (x86)/Talend-Studio/studio/workspace/.metadata\"",
-=======
-        "value" : "\"/Users/muhfais_/Downloads/TOS_BD-20211109_1610-V8.0.1/workspace/.metadata\"",
->>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         "contextMode" : false
       }, {
         "show" : true,
@@ -113,21 +109,13 @@
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_TYPE",
-<<<<<<< HEAD
         "value" : "JDBCOutput",
-=======
-        "value" : "tJDBCOutput",
->>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         "contextMode" : false
       }, {
         "show" : true,
         "field" : "CLOSED_LIST",
         "name" : "DB_VERSION",
-<<<<<<< HEAD
         "value" : "ORACLE_18",
-=======
-        "value" : "ORACLE_12",
->>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         "contextMode" : false
       }, {
         "show" : true,
@@ -192,11 +180,7 @@
         "show" : true,
         "field" : "PASSWORD",
         "name" : "PASS",
-<<<<<<< HEAD
         "value" : "enc:system.encryption.key.v1:H/1NnY+dUgzwzEDXZQJARyXUCnjLmY1SHEG1QHs3",
-=======
-        "value" : "enc:system.encryption.key.v1:JY+DAA9UZd7elkgPrC8k8pEUTcHRsMQHeaR97h1P",
->>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         "contextMode" : false
       }, {
         "show" : true,
@@ -404,11 +388,7 @@
         "show" : true,
         "field" : "PASSWORD",
         "name" : "PASS_IMPLICIT_CONTEXT",
-<<<<<<< HEAD
         "value" : "enc:system.encryption.key.v1:+KYYFFSDdWvbaS3VjOCwtDo2MXS7qLGtcKite48D",
-=======
-        "value" : "enc:system.encryption.key.v1:Yp8Bf4x+Md0QG3qgrjdFe1vfwehnaoH5WzE4EIkj",
->>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         "contextMode" : false
       }, {
         "show" : true,
