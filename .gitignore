@@ -1,0 +1,10 @@
+# Talend build artifacts
+poms/
+target/
+
+# Java compiled files
+*.class
+*.jar
+
+# Temp files
+temp/

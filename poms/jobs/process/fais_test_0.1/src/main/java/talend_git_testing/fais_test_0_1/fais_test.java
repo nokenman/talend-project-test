@@ -433,7 +433,17 @@ public class fais_test implements TalendJob {
 		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
 	}
 
-	public void tLogRow_1_error(Exception exception, String errorComponent,
+	public void tFileOutputDelimited_1_error(Exception exception, String errorComponent,
+			final java.util.Map<String, Object> globalMap) throws TalendException {
+
+		end_Hash.put(errorComponent, System.currentTimeMillis());
+
+		status = "failure";
+
+		tFileInputDelimited_1_onSubJobError(exception, errorComponent, globalMap);
+	}
+
+	public void tFileOutputDelimited_2_error(Exception exception, String errorComponent,
 			final java.util.Map<String, Object> globalMap) throws TalendException {
 
 		end_Hash.put(errorComponent, System.currentTimeMillis());
@@ -469,146 +479,234 @@ public class fais_test implements TalendJob {
 
 	}
 
-	public static class tetsStruct implements routines.system.IPersistableRow<tetsStruct> {
+	public static class out1Struct implements routines.system.IPersistableRow<out1Struct> {
 		final static byte[] commonByteArrayLock_TALEND_GIT_TESTING_fais_test = new byte[0];
 		static byte[] commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[0];
 
-		public String countries;
+		public Integer id;
 
-		public String getCountries() {
-			return this.countries;
+		public Integer getId() {
+			return this.id;
 		}
 
-		public Boolean countriesIsNullable() {
+		public Boolean idIsNullable() {
 			return true;
 		}
 
-		public Boolean countriesIsKey() {
+		public Boolean idIsKey() {
 			return false;
 		}
 
-		public Integer countriesLength() {
+		public Integer idLength() {
 			return null;
 		}
 
-		public Integer countriesPrecision() {
+		public Integer idPrecision() {
 			return null;
 		}
 
-		public String countriesDefault() {
+		public String idDefault() {
 
 			return null;
 
 		}
 
-		public String countriesComment() {
+		public String idComment() {
 
 			return "";
 
 		}
 
-		public String countriesPattern() {
+		public String idPattern() {
 
 			return "";
 
 		}
 
-		public String countriesOriginalDbColumnName() {
+		public String idOriginalDbColumnName() {
 
-			return "countries";
+			return "id";
 
 		}
 
-		public String latitude;
+		public String name;
 
-		public String getLatitude() {
-			return this.latitude;
+		public String getName() {
+			return this.name;
 		}
 
-		public Boolean latitudeIsNullable() {
+		public Boolean nameIsNullable() {
 			return true;
 		}
 
-		public Boolean latitudeIsKey() {
+		public Boolean nameIsKey() {
 			return false;
 		}
 
-		public Integer latitudeLength() {
+		public Integer nameLength() {
 			return null;
 		}
 
-		public Integer latitudePrecision() {
+		public Integer namePrecision() {
 			return null;
 		}
 
-		public String latitudeDefault() {
+		public String nameDefault() {
 
 			return null;
 
 		}
 
-		public String latitudeComment() {
+		public String nameComment() {
 
 			return "";
 
 		}
 
-		public String latitudePattern() {
+		public String namePattern() {
 
 			return "";
 
 		}
 
-		public String latitudeOriginalDbColumnName() {
+		public String nameOriginalDbColumnName() {
 
-			return "latitude";
+			return "name";
 
 		}
 
-		public String longitude;
+		public String email;
 
-		public String getLongitude() {
-			return this.longitude;
+		public String getEmail() {
+			return this.email;
 		}
 
-		public Boolean longitudeIsNullable() {
+		public Boolean emailIsNullable() {
 			return true;
 		}
 
-		public Boolean longitudeIsKey() {
+		public Boolean emailIsKey() {
 			return false;
 		}
 
-		public Integer longitudeLength() {
+		public Integer emailLength() {
 			return null;
 		}
 
-		public Integer longitudePrecision() {
+		public Integer emailPrecision() {
 			return null;
 		}
 
-		public String longitudeDefault() {
+		public String emailDefault() {
 
 			return null;
 
 		}
 
-		public String longitudeComment() {
+		public String emailComment() {
 
 			return "";
 
 		}
 
-		public String longitudePattern() {
+		public String emailPattern() {
 
 			return "";
 
 		}
 
-		public String longitudeOriginalDbColumnName() {
+		public String emailOriginalDbColumnName() {
 
-			return "longitude";
+			return "email";
 
+		}
+
+		public String phone;
+
+		public String getPhone() {
+			return this.phone;
+		}
+
+		public Boolean phoneIsNullable() {
+			return true;
+		}
+
+		public Boolean phoneIsKey() {
+			return false;
+		}
+
+		public Integer phoneLength() {
+			return null;
+		}
+
+		public Integer phonePrecision() {
+			return null;
+		}
+
+		public String phoneDefault() {
+
+			return null;
+
+		}
+
+		public String phoneComment() {
+
+			return "";
+
+		}
+
+		public String phonePattern() {
+
+			return "";
+
+		}
+
+		public String phoneOriginalDbColumnName() {
+
+			return "phone";
+
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -679,11 +777,13 @@ public class fais_test implements TalendJob {
 
 					int length = 0;
 
-					this.countries = readString(dis);
+					this.id = readInteger(dis);
 
-					this.latitude = readString(dis);
+					this.name = readString(dis);
 
-					this.longitude = readString(dis);
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -702,11 +802,13 @@ public class fais_test implements TalendJob {
 
 					int length = 0;
 
-					this.countries = readString(dis);
+					this.id = readInteger(dis);
 
-					this.latitude = readString(dis);
+					this.name = readString(dis);
 
-					this.longitude = readString(dis);
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -720,17 +822,21 @@ public class fais_test implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.countries, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
-				writeString(this.longitude, dos);
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -741,17 +847,21 @@ public class fais_test implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.countries, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
-				writeString(this.longitude, dos);
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -764,9 +874,10 @@ public class fais_test implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("countries=" + countries);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",name=" + name);
+			sb.append(",email=" + email);
+			sb.append(",phone=" + phone);
 			sb.append("]");
 
 			return sb.toString();
@@ -775,26 +886,34 @@ public class fais_test implements TalendJob {
 		public String toLogString() {
 			StringBuilder sb = new StringBuilder();
 
-			if (countries == null) {
+			if (id == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(countries);
+				sb.append(id);
 			}
 
 			sb.append("|");
 
-			if (latitude == null) {
+			if (name == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(latitude);
+				sb.append(name);
 			}
 
 			sb.append("|");
 
-			if (longitude == null) {
+			if (email == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(longitude);
+				sb.append(email);
+			}
+
+			sb.append("|");
+
+			if (phone == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(phone);
 			}
 
 			sb.append("|");
@@ -805,7 +924,549 @@ public class fais_test implements TalendJob {
 		/**
 		 * Compare keys
 		 */
-		public int compareTo(tetsStruct other) {
+		public int compareTo(out1Struct other) {
+
+			int returnValue = -1;
+
+			return returnValue;
+		}
+
+		private int checkNullsAndCompare(Object object1, Object object2) {
+			int returnValue = 0;
+			if (object1 instanceof Comparable && object2 instanceof Comparable) {
+				returnValue = ((Comparable) object1).compareTo(object2);
+			} else if (object1 != null && object2 != null) {
+				returnValue = compareStrings(object1.toString(), object2.toString());
+			} else if (object1 == null && object2 != null) {
+				returnValue = 1;
+			} else if (object1 != null && object2 == null) {
+				returnValue = -1;
+			} else {
+				returnValue = 0;
+			}
+
+			return returnValue;
+		}
+
+		private int compareStrings(String string1, String string2) {
+			return string1.compareTo(string2);
+		}
+
+	}
+
+	public static class out2Struct implements routines.system.IPersistableRow<out2Struct> {
+		final static byte[] commonByteArrayLock_TALEND_GIT_TESTING_fais_test = new byte[0];
+		static byte[] commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[0];
+
+		public Integer id;
+
+		public Integer getId() {
+			return this.id;
+		}
+
+		public Boolean idIsNullable() {
+			return true;
+		}
+
+		public Boolean idIsKey() {
+			return false;
+		}
+
+		public Integer idLength() {
+			return null;
+		}
+
+		public Integer idPrecision() {
+			return null;
+		}
+
+		public String idDefault() {
+
+			return null;
+
+		}
+
+		public String idComment() {
+
+			return "";
+
+		}
+
+		public String idPattern() {
+
+			return "";
+
+		}
+
+		public String idOriginalDbColumnName() {
+
+			return "id";
+
+		}
+
+		public String name;
+
+		public String getName() {
+			return this.name;
+		}
+
+		public Boolean nameIsNullable() {
+			return true;
+		}
+
+		public Boolean nameIsKey() {
+			return false;
+		}
+
+		public Integer nameLength() {
+			return null;
+		}
+
+		public Integer namePrecision() {
+			return null;
+		}
+
+		public String nameDefault() {
+
+			return null;
+
+		}
+
+		public String nameComment() {
+
+			return "";
+
+		}
+
+		public String namePattern() {
+
+			return "";
+
+		}
+
+		public String nameOriginalDbColumnName() {
+
+			return "name";
+
+		}
+
+		public String email;
+
+		public String getEmail() {
+			return this.email;
+		}
+
+		public Boolean emailIsNullable() {
+			return true;
+		}
+
+		public Boolean emailIsKey() {
+			return false;
+		}
+
+		public Integer emailLength() {
+			return null;
+		}
+
+		public Integer emailPrecision() {
+			return null;
+		}
+
+		public String emailDefault() {
+
+			return null;
+
+		}
+
+		public String emailComment() {
+
+			return "";
+
+		}
+
+		public String emailPattern() {
+
+			return "";
+
+		}
+
+		public String emailOriginalDbColumnName() {
+
+			return "email";
+
+		}
+
+		public String phone;
+
+		public String getPhone() {
+			return this.phone;
+		}
+
+		public Boolean phoneIsNullable() {
+			return true;
+		}
+
+		public Boolean phoneIsKey() {
+			return false;
+		}
+
+		public Integer phoneLength() {
+			return null;
+		}
+
+		public Integer phonePrecision() {
+			return null;
+		}
+
+		public String phoneDefault() {
+
+			return null;
+
+		}
+
+		public String phoneComment() {
+
+			return "";
+
+		}
+
+		public String phonePattern() {
+
+			return "";
+
+		}
+
+		public String phoneOriginalDbColumnName() {
+
+			return "phone";
+
+		}
+
+		public String error_messages;
+
+		public String getError_messages() {
+			return this.error_messages;
+		}
+
+		public Boolean error_messagesIsNullable() {
+			return true;
+		}
+
+		public Boolean error_messagesIsKey() {
+			return false;
+		}
+
+		public Integer error_messagesLength() {
+			return null;
+		}
+
+		public Integer error_messagesPrecision() {
+			return null;
+		}
+
+		public String error_messagesDefault() {
+
+			return null;
+
+		}
+
+		public String error_messagesComment() {
+
+			return "";
+
+		}
+
+		public String error_messagesPattern() {
+
+			return "";
+
+		}
+
+		public String error_messagesOriginalDbColumnName() {
+
+			return "error_messages";
+
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
+		}
+
+		private String readString(ObjectInputStream dis) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = dis.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALEND_GIT_TESTING_fais_test.length) {
+					if (length < 1024 && commonByteArray_TALEND_GIT_TESTING_fais_test.length == 0) {
+						commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[1024];
+					} else {
+						commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[2 * length];
+					}
+				}
+				dis.readFully(commonByteArray_TALEND_GIT_TESTING_fais_test, 0, length);
+				strReturn = new String(commonByteArray_TALEND_GIT_TESTING_fais_test, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private String readString(org.jboss.marshalling.Unmarshaller unmarshaller) throws IOException {
+			String strReturn = null;
+			int length = 0;
+			length = unmarshaller.readInt();
+			if (length == -1) {
+				strReturn = null;
+			} else {
+				if (length > commonByteArray_TALEND_GIT_TESTING_fais_test.length) {
+					if (length < 1024 && commonByteArray_TALEND_GIT_TESTING_fais_test.length == 0) {
+						commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[1024];
+					} else {
+						commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[2 * length];
+					}
+				}
+				unmarshaller.readFully(commonByteArray_TALEND_GIT_TESTING_fais_test, 0, length);
+				strReturn = new String(commonByteArray_TALEND_GIT_TESTING_fais_test, 0, length, utf8Charset);
+			}
+			return strReturn;
+		}
+
+		private void writeString(String str, ObjectOutputStream dos) throws IOException {
+			if (str == null) {
+				dos.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				dos.writeInt(byteArray.length);
+				dos.write(byteArray);
+			}
+		}
+
+		private void writeString(String str, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (str == null) {
+				marshaller.writeInt(-1);
+			} else {
+				byte[] byteArray = str.getBytes(utf8Charset);
+				marshaller.writeInt(byteArray.length);
+				marshaller.write(byteArray);
+			}
+		}
+
+		public void readData(ObjectInputStream dis) {
+
+			synchronized (commonByteArrayLock_TALEND_GIT_TESTING_fais_test) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
+
+					this.error_messages = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void readData(org.jboss.marshalling.Unmarshaller dis) {
+
+			synchronized (commonByteArrayLock_TALEND_GIT_TESTING_fais_test) {
+
+				try {
+
+					int length = 0;
+
+					this.id = readInteger(dis);
+
+					this.name = readString(dis);
+
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
+
+					this.error_messages = readString(dis);
+
+				} catch (IOException e) {
+					throw new RuntimeException(e);
+
+				}
+
+			}
+
+		}
+
+		public void writeData(ObjectOutputStream dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
+
+				// String
+
+				writeString(this.error_messages, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public void writeData(org.jboss.marshalling.Marshaller dos) {
+			try {
+
+				// Integer
+
+				writeInteger(this.id, dos);
+
+				// String
+
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
+
+				// String
+
+				writeString(this.error_messages, dos);
+
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+		}
+
+		public String toString() {
+
+			StringBuilder sb = new StringBuilder();
+			sb.append(super.toString());
+			sb.append("[");
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",name=" + name);
+			sb.append(",email=" + email);
+			sb.append(",phone=" + phone);
+			sb.append(",error_messages=" + error_messages);
+			sb.append("]");
+
+			return sb.toString();
+		}
+
+		public String toLogString() {
+			StringBuilder sb = new StringBuilder();
+
+			if (id == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(id);
+			}
+
+			sb.append("|");
+
+			if (name == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(name);
+			}
+
+			sb.append("|");
+
+			if (email == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(email);
+			}
+
+			sb.append("|");
+
+			if (phone == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(phone);
+			}
+
+			sb.append("|");
+
+			if (error_messages == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(error_messages);
+			}
+
+			sb.append("|");
+
+			return sb.toString();
+		}
+
+		/**
+		 * Compare keys
+		 */
+		public int compareTo(out2Struct other) {
 
 			int returnValue = -1;
 
@@ -839,142 +1500,230 @@ public class fais_test implements TalendJob {
 		final static byte[] commonByteArrayLock_TALEND_GIT_TESTING_fais_test = new byte[0];
 		static byte[] commonByteArray_TALEND_GIT_TESTING_fais_test = new byte[0];
 
-		public String countries;
+		public Integer id;
 
-		public String getCountries() {
-			return this.countries;
+		public Integer getId() {
+			return this.id;
 		}
 
-		public Boolean countriesIsNullable() {
+		public Boolean idIsNullable() {
 			return true;
 		}
 
-		public Boolean countriesIsKey() {
+		public Boolean idIsKey() {
 			return false;
 		}
 
-		public Integer countriesLength() {
+		public Integer idLength() {
 			return null;
 		}
 
-		public Integer countriesPrecision() {
+		public Integer idPrecision() {
 			return null;
 		}
 
-		public String countriesDefault() {
+		public String idDefault() {
 
 			return null;
 
 		}
 
-		public String countriesComment() {
+		public String idComment() {
 
 			return "";
 
 		}
 
-		public String countriesPattern() {
+		public String idPattern() {
 
 			return "";
 
 		}
 
-		public String countriesOriginalDbColumnName() {
+		public String idOriginalDbColumnName() {
 
-			return "countries";
+			return "id";
 
 		}
 
-		public String latitude;
+		public String name;
 
-		public String getLatitude() {
-			return this.latitude;
+		public String getName() {
+			return this.name;
 		}
 
-		public Boolean latitudeIsNullable() {
+		public Boolean nameIsNullable() {
 			return true;
 		}
 
-		public Boolean latitudeIsKey() {
+		public Boolean nameIsKey() {
 			return false;
 		}
 
-		public Integer latitudeLength() {
+		public Integer nameLength() {
 			return null;
 		}
 
-		public Integer latitudePrecision() {
+		public Integer namePrecision() {
 			return null;
 		}
 
-		public String latitudeDefault() {
+		public String nameDefault() {
 
 			return null;
 
 		}
 
-		public String latitudeComment() {
+		public String nameComment() {
 
 			return "";
 
 		}
 
-		public String latitudePattern() {
+		public String namePattern() {
 
 			return "";
 
 		}
 
-		public String latitudeOriginalDbColumnName() {
+		public String nameOriginalDbColumnName() {
 
-			return "latitude";
+			return "name";
 
 		}
 
-		public String longitude;
+		public String email;
 
-		public String getLongitude() {
-			return this.longitude;
+		public String getEmail() {
+			return this.email;
 		}
 
-		public Boolean longitudeIsNullable() {
+		public Boolean emailIsNullable() {
 			return true;
 		}
 
-		public Boolean longitudeIsKey() {
+		public Boolean emailIsKey() {
 			return false;
 		}
 
-		public Integer longitudeLength() {
+		public Integer emailLength() {
 			return null;
 		}
 
-		public Integer longitudePrecision() {
+		public Integer emailPrecision() {
 			return null;
 		}
 
-		public String longitudeDefault() {
+		public String emailDefault() {
 
 			return null;
 
 		}
 
-		public String longitudeComment() {
+		public String emailComment() {
 
 			return "";
 
 		}
 
-		public String longitudePattern() {
+		public String emailPattern() {
 
 			return "";
 
 		}
 
-		public String longitudeOriginalDbColumnName() {
+		public String emailOriginalDbColumnName() {
 
-			return "longitude";
+			return "email";
 
+		}
+
+		public String phone;
+
+		public String getPhone() {
+			return this.phone;
+		}
+
+		public Boolean phoneIsNullable() {
+			return true;
+		}
+
+		public Boolean phoneIsKey() {
+			return false;
+		}
+
+		public Integer phoneLength() {
+			return null;
+		}
+
+		public Integer phonePrecision() {
+			return null;
+		}
+
+		public String phoneDefault() {
+
+			return null;
+
+		}
+
+		public String phoneComment() {
+
+			return "";
+
+		}
+
+		public String phonePattern() {
+
+			return "";
+
+		}
+
+		public String phoneOriginalDbColumnName() {
+
+			return "phone";
+
+		}
+
+		private Integer readInteger(ObjectInputStream dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private Integer readInteger(org.jboss.marshalling.Unmarshaller dis) throws IOException {
+			Integer intReturn;
+			int length = 0;
+			length = dis.readByte();
+			if (length == -1) {
+				intReturn = null;
+			} else {
+				intReturn = dis.readInt();
+			}
+			return intReturn;
+		}
+
+		private void writeInteger(Integer intNum, ObjectOutputStream dos) throws IOException {
+			if (intNum == null) {
+				dos.writeByte(-1);
+			} else {
+				dos.writeByte(0);
+				dos.writeInt(intNum);
+			}
+		}
+
+		private void writeInteger(Integer intNum, org.jboss.marshalling.Marshaller marshaller) throws IOException {
+			if (intNum == null) {
+				marshaller.writeByte(-1);
+			} else {
+				marshaller.writeByte(0);
+				marshaller.writeInt(intNum);
+			}
 		}
 
 		private String readString(ObjectInputStream dis) throws IOException {
@@ -1045,11 +1794,13 @@ public class fais_test implements TalendJob {
 
 					int length = 0;
 
-					this.countries = readString(dis);
+					this.id = readInteger(dis);
 
-					this.latitude = readString(dis);
+					this.name = readString(dis);
 
-					this.longitude = readString(dis);
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1068,11 +1819,13 @@ public class fais_test implements TalendJob {
 
 					int length = 0;
 
-					this.countries = readString(dis);
+					this.id = readInteger(dis);
 
-					this.latitude = readString(dis);
+					this.name = readString(dis);
 
-					this.longitude = readString(dis);
+					this.email = readString(dis);
+
+					this.phone = readString(dis);
 
 				} catch (IOException e) {
 					throw new RuntimeException(e);
@@ -1086,17 +1839,21 @@ public class fais_test implements TalendJob {
 		public void writeData(ObjectOutputStream dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.countries, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
-				writeString(this.longitude, dos);
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1107,17 +1864,21 @@ public class fais_test implements TalendJob {
 		public void writeData(org.jboss.marshalling.Marshaller dos) {
 			try {
 
-				// String
+				// Integer
 
-				writeString(this.countries, dos);
-
-				// String
-
-				writeString(this.latitude, dos);
+				writeInteger(this.id, dos);
 
 				// String
 
-				writeString(this.longitude, dos);
+				writeString(this.name, dos);
+
+				// String
+
+				writeString(this.email, dos);
+
+				// String
+
+				writeString(this.phone, dos);
 
 			} catch (IOException e) {
 				throw new RuntimeException(e);
@@ -1130,9 +1891,10 @@ public class fais_test implements TalendJob {
 			StringBuilder sb = new StringBuilder();
 			sb.append(super.toString());
 			sb.append("[");
-			sb.append("countries=" + countries);
-			sb.append(",latitude=" + latitude);
-			sb.append(",longitude=" + longitude);
+			sb.append("id=" + String.valueOf(id));
+			sb.append(",name=" + name);
+			sb.append(",email=" + email);
+			sb.append(",phone=" + phone);
 			sb.append("]");
 
 			return sb.toString();
@@ -1141,26 +1903,34 @@ public class fais_test implements TalendJob {
 		public String toLogString() {
 			StringBuilder sb = new StringBuilder();
 
-			if (countries == null) {
+			if (id == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(countries);
+				sb.append(id);
 			}
 
 			sb.append("|");
 
-			if (latitude == null) {
+			if (name == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(latitude);
+				sb.append(name);
 			}
 
 			sb.append("|");
 
-			if (longitude == null) {
+			if (email == null) {
 				sb.append("<null>");
 			} else {
-				sb.append(longitude);
+				sb.append(email);
+			}
+
+			sb.append("|");
+
+			if (phone == null) {
+				sb.append("<null>");
+			} else {
+				sb.append(phone);
 			}
 
 			sb.append("|");
@@ -1206,7 +1976,7 @@ public class fais_test implements TalendJob {
 
 		final boolean execStat = this.execStat;
 
-		mdc("tFileInputDelimited_1", "BMtLzt_");
+		mdc("tFileInputDelimited_1", "hNDZTe_");
 
 		String iterateId = "";
 
@@ -1226,174 +1996,305 @@ public class fais_test implements TalendJob {
 				globalResumeTicket = true;
 
 				row1Struct row1 = new row1Struct();
-				tetsStruct tets = new tetsStruct();
+				out1Struct out1 = new out1Struct();
+				out2Struct out2 = new out2Struct();
 
 				/**
-				 * [tLogRow_1 begin ] start
+				 * [tFileOutputDelimited_1 begin ] start
 				 */
 
-				sh("tLogRow_1");
+				sh("tFileOutputDelimited_1");
 
-				s(currentComponent = "tLogRow_1");
+				s(currentComponent = "tFileOutputDelimited_1");
 
-				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "tets");
+				cLabel = "valid_output";
 
-				int tos_count_tLogRow_1 = 0;
+				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "out1");
+
+				int tos_count_tFileOutputDelimited_1 = 0;
 
 				if (log.isDebugEnabled())
-					log.debug("tLogRow_1 - " + ("Start to work."));
+					log.debug("tFileOutputDelimited_1 - " + ("Start to work."));
 				if (log.isDebugEnabled()) {
-					class BytesLimit65535_tLogRow_1 {
+					class BytesLimit65535_tFileOutputDelimited_1 {
 						public void limitLog4jByte() throws Exception {
-							StringBuilder log4jParamters_tLogRow_1 = new StringBuilder();
-							log4jParamters_tLogRow_1.append("Parameters:");
-							log4jParamters_tLogRow_1.append("BASIC_MODE" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("TABLE_PRINT" + " = " + "true");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("VERTICAL" + " = " + "false");
-							log4jParamters_tLogRow_1.append(" | ");
-							log4jParamters_tLogRow_1.append("PRINT_CONTENT_WITH_LOG4J" + " = " + "true");
-							log4jParamters_tLogRow_1.append(" | ");
+							StringBuilder log4jParamters_tFileOutputDelimited_1 = new StringBuilder();
+							log4jParamters_tFileOutputDelimited_1.append("Parameters:");
+							log4jParamters_tFileOutputDelimited_1.append("USESTREAM" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1
+									.append("FILENAME" + " = " + "\"C:/Users/mfaisal/Downloads/valid_output.csv\"");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("ROWSEPARATOR" + " = " + "\"\\n\"");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("FIELDSEPARATOR" + " = " + "\",\"");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("APPEND" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("INCLUDEHEADER" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("COMPRESS" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("ADVANCED_SEPARATOR" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("CSV_OPTION" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("CREATE" + " = " + "true");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("SPLIT" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("FLUSHONROW" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("ROW_MODE" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("ENCODING" + " = " + "\"ISO-8859-15\"");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("DELETE_EMPTYFILE" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
+							log4jParamters_tFileOutputDelimited_1.append("FILE_EXIST_EXCEPTION" + " = " + "true");
+							log4jParamters_tFileOutputDelimited_1.append(" | ");
 							if (log.isDebugEnabled())
-								log.debug("tLogRow_1 - " + (log4jParamters_tLogRow_1));
+								log.debug("tFileOutputDelimited_1 - " + (log4jParamters_tFileOutputDelimited_1));
 						}
 					}
-					new BytesLimit65535_tLogRow_1().limitLog4jByte();
+					new BytesLimit65535_tFileOutputDelimited_1().limitLog4jByte();
 				}
 				if (enableLogStash) {
-					talendJobLog.addCM("tLogRow_1", "tLogRow_1", "tLogRow");
+					talendJobLog.addCM("tFileOutputDelimited_1", "valid_output", "tFileOutputDelimited");
 					talendJobLogProcess(globalMap);
 					s(currentComponent);
 				}
 
-				///////////////////////
-
-				class Util_tLogRow_1 {
-
-					String[] des_top = { ".", ".", "-", "+" };
-
-					String[] des_head = { "|=", "=|", "-", "+" };
-
-					String[] des_bottom = { "'", "'", "-", "+" };
-
-					String name = "";
-
-					java.util.List<String[]> list = new java.util.ArrayList<String[]>();
-
-					int[] colLengths = new int[3];
-
-					public void addRow(String[] row) {
-
-						for (int i = 0; i < 3; i++) {
-							if (row[i] != null) {
-								colLengths[i] = Math.max(colLengths[i], row[i].length());
-							}
-						}
-						list.add(row);
+				String fileName_tFileOutputDelimited_1 = "";
+				fileName_tFileOutputDelimited_1 = (new java.io.File("C:/Users/mfaisal/Downloads/valid_output.csv"))
+						.getAbsolutePath().replace("\\", "/");
+				String fullName_tFileOutputDelimited_1 = null;
+				String extension_tFileOutputDelimited_1 = null;
+				String directory_tFileOutputDelimited_1 = null;
+				if ((fileName_tFileOutputDelimited_1.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") < fileName_tFileOutputDelimited_1
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
 					}
-
-					public void setTableName(String name) {
-
-						this.name = name;
+					directory_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+							fileName_tFileOutputDelimited_1.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_1.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1.substring(0,
+								fileName_tFileOutputDelimited_1.lastIndexOf("."));
+						extension_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1
+								.substring(fileName_tFileOutputDelimited_1.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_1 = fileName_tFileOutputDelimited_1;
+						extension_tFileOutputDelimited_1 = "";
 					}
+					directory_tFileOutputDelimited_1 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_1 = true;
+				java.io.File filetFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
+				if (filetFileOutputDelimited_1.exists()) {
+					throw new RuntimeException("The particular file \"" + filetFileOutputDelimited_1.getAbsoluteFile()
+							+ "\" already exist. If you want to overwrite the file, please uncheck the"
+							+ " \"Throw an error if the file already exist\" option in Advanced settings.");
+				}
+				int nb_line_tFileOutputDelimited_1 = 0;
+				int splitedFileNo_tFileOutputDelimited_1 = 0;
+				int currentRow_tFileOutputDelimited_1 = 0;
 
-					public StringBuilder format() {
+				final String OUT_DELIM_tFileOutputDelimited_1 = /** Start field tFileOutputDelimited_1:FIELDSEPARATOR */
+						","/** End field tFileOutputDelimited_1:FIELDSEPARATOR */
+				;
 
-						StringBuilder sb = new StringBuilder();
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_1 = /**
+																		 * Start field
+																		 * tFileOutputDelimited_1:ROWSEPARATOR
+																		 */
+						"\n"/** End field tFileOutputDelimited_1:ROWSEPARATOR */
+				;
 
-						sb.append(print(des_top));
-
-						int totals = 0;
-						for (int i = 0; i < colLengths.length; i++) {
-							totals = totals + colLengths[i];
-						}
-
-						// name
-						sb.append("|");
-						int k = 0;
-						for (k = 0; k < (totals + 2 - name.length()) / 2; k++) {
-							sb.append(' ');
-						}
-						sb.append(name);
-						for (int i = 0; i < totals + 2 - name.length() - k; i++) {
-							sb.append(' ');
-						}
-						sb.append("|\n");
-
-						// head and rows
-						sb.append(print(des_head));
-						for (int i = 0; i < list.size(); i++) {
-
-							String[] row = list.get(i);
-
-							java.util.Formatter formatter = new java.util.Formatter(new StringBuilder());
-
-							StringBuilder sbformat = new StringBuilder();
-							sbformat.append("|%1$-");
-							sbformat.append(colLengths[0]);
-							sbformat.append("s");
-
-							sbformat.append("|%2$-");
-							sbformat.append(colLengths[1]);
-							sbformat.append("s");
-
-							sbformat.append("|%3$-");
-							sbformat.append(colLengths[2]);
-							sbformat.append("s");
-
-							sbformat.append("|\n");
-
-							formatter.format(sbformat.toString(), (Object[]) row);
-
-							sb.append(formatter.toString());
-							if (i == 0)
-								sb.append(print(des_head)); // print the head
-						}
-
-						// end
-						sb.append(print(des_bottom));
-						return sb;
-					}
-
-					private StringBuilder print(String[] fillChars) {
-						StringBuilder sb = new StringBuilder();
-						// first column
-						sb.append(fillChars[0]);
-						for (int i = 0; i < colLengths[0] - fillChars[0].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						for (int i = 0; i < colLengths[1] - fillChars[3].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[3]);
-
-						// last column
-						for (int i = 0; i < colLengths[2] - fillChars[1].length() + 1; i++) {
-							sb.append(fillChars[2]);
-						}
-						sb.append(fillChars[1]);
-						sb.append("\n");
-						return sb;
-					}
-
-					public boolean isTableEmpty() {
-						if (list.size() > 1)
-							return false;
-						return true;
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_1 != null && directory_tFileOutputDelimited_1.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_1 = new java.io.File(directory_tFileOutputDelimited_1);
+					if (!dir_tFileOutputDelimited_1.exists()) {
+						log.info("tFileOutputDelimited_1 - Creating directory '"
+								+ dir_tFileOutputDelimited_1.getCanonicalPath() + "'.");
+						dir_tFileOutputDelimited_1.mkdirs();
+						log.info("tFileOutputDelimited_1 - The directory '"
+								+ dir_tFileOutputDelimited_1.getCanonicalPath() + "' has been created successfully.");
 					}
 				}
-				Util_tLogRow_1 util_tLogRow_1 = new Util_tLogRow_1();
-				util_tLogRow_1.setTableName("tLogRow_1");
-				util_tLogRow_1.addRow(new String[] { "countries", "latitude", "longitude", });
-				StringBuilder strBuffer_tLogRow_1 = null;
-				int nb_line_tLogRow_1 = 0;
-///////////////////////    			
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_1 = null;
+
+				java.io.File fileToDelete_tFileOutputDelimited_1 = new java.io.File(fileName_tFileOutputDelimited_1);
+				if (fileToDelete_tFileOutputDelimited_1.exists()) {
+					fileToDelete_tFileOutputDelimited_1.delete();
+				}
+				outtFileOutputDelimited_1 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+						new java.io.FileOutputStream(fileName_tFileOutputDelimited_1, false), "ISO-8859-15"));
+				resourceMap.put("out_tFileOutputDelimited_1", outtFileOutputDelimited_1);
+
+				resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
 				/**
-				 * [tLogRow_1 begin ] stop
+				 * [tFileOutputDelimited_1 begin ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_2 begin ] start
+				 */
+
+				sh("tFileOutputDelimited_2");
+
+				s(currentComponent = "tFileOutputDelimited_2");
+
+				cLabel = "invalid_output";
+
+				runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, 0, 0, "out2");
+
+				int tos_count_tFileOutputDelimited_2 = 0;
+
+				if (log.isDebugEnabled())
+					log.debug("tFileOutputDelimited_2 - " + ("Start to work."));
+				if (log.isDebugEnabled()) {
+					class BytesLimit65535_tFileOutputDelimited_2 {
+						public void limitLog4jByte() throws Exception {
+							StringBuilder log4jParamters_tFileOutputDelimited_2 = new StringBuilder();
+							log4jParamters_tFileOutputDelimited_2.append("Parameters:");
+							log4jParamters_tFileOutputDelimited_2.append("USESTREAM" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2
+									.append("FILENAME" + " = " + "\"C:/Users/mfaisal/Downloads/invalid_output.csv\"");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("ROWSEPARATOR" + " = " + "\"\\n\"");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("FIELDSEPARATOR" + " = " + "\",\"");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("APPEND" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("INCLUDEHEADER" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("COMPRESS" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("ADVANCED_SEPARATOR" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("CSV_OPTION" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("CREATE" + " = " + "true");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("SPLIT" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("FLUSHONROW" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("ROW_MODE" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("ENCODING" + " = " + "\"ISO-8859-15\"");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("DELETE_EMPTYFILE" + " = " + "false");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							log4jParamters_tFileOutputDelimited_2.append("FILE_EXIST_EXCEPTION" + " = " + "true");
+							log4jParamters_tFileOutputDelimited_2.append(" | ");
+							if (log.isDebugEnabled())
+								log.debug("tFileOutputDelimited_2 - " + (log4jParamters_tFileOutputDelimited_2));
+						}
+					}
+					new BytesLimit65535_tFileOutputDelimited_2().limitLog4jByte();
+				}
+				if (enableLogStash) {
+					talendJobLog.addCM("tFileOutputDelimited_2", "invalid_output", "tFileOutputDelimited");
+					talendJobLogProcess(globalMap);
+					s(currentComponent);
+				}
+
+				String fileName_tFileOutputDelimited_2 = "";
+				fileName_tFileOutputDelimited_2 = (new java.io.File("C:/Users/mfaisal/Downloads/invalid_output.csv"))
+						.getAbsolutePath().replace("\\", "/");
+				String fullName_tFileOutputDelimited_2 = null;
+				String extension_tFileOutputDelimited_2 = null;
+				String directory_tFileOutputDelimited_2 = null;
+				if ((fileName_tFileOutputDelimited_2.indexOf("/") != -1)) {
+					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") < fileName_tFileOutputDelimited_2
+							.lastIndexOf("/")) {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+						extension_tFileOutputDelimited_2 = "";
+					} else {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+								fileName_tFileOutputDelimited_2.lastIndexOf("."));
+						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
+								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+					}
+					directory_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+							fileName_tFileOutputDelimited_2.lastIndexOf("/"));
+				} else {
+					if (fileName_tFileOutputDelimited_2.lastIndexOf(".") != -1) {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2.substring(0,
+								fileName_tFileOutputDelimited_2.lastIndexOf("."));
+						extension_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2
+								.substring(fileName_tFileOutputDelimited_2.lastIndexOf("."));
+					} else {
+						fullName_tFileOutputDelimited_2 = fileName_tFileOutputDelimited_2;
+						extension_tFileOutputDelimited_2 = "";
+					}
+					directory_tFileOutputDelimited_2 = "";
+				}
+				boolean isFileGenerated_tFileOutputDelimited_2 = true;
+				java.io.File filetFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+				if (filetFileOutputDelimited_2.exists()) {
+					throw new RuntimeException("The particular file \"" + filetFileOutputDelimited_2.getAbsoluteFile()
+							+ "\" already exist. If you want to overwrite the file, please uncheck the"
+							+ " \"Throw an error if the file already exist\" option in Advanced settings.");
+				}
+				int nb_line_tFileOutputDelimited_2 = 0;
+				int splitedFileNo_tFileOutputDelimited_2 = 0;
+				int currentRow_tFileOutputDelimited_2 = 0;
+
+				final String OUT_DELIM_tFileOutputDelimited_2 = /** Start field tFileOutputDelimited_2:FIELDSEPARATOR */
+						","/** End field tFileOutputDelimited_2:FIELDSEPARATOR */
+				;
+
+				final String OUT_DELIM_ROWSEP_tFileOutputDelimited_2 = /**
+																		 * Start field
+																		 * tFileOutputDelimited_2:ROWSEPARATOR
+																		 */
+						"\n"/** End field tFileOutputDelimited_2:ROWSEPARATOR */
+				;
+
+				// create directory only if not exists
+				if (directory_tFileOutputDelimited_2 != null && directory_tFileOutputDelimited_2.trim().length() != 0) {
+					java.io.File dir_tFileOutputDelimited_2 = new java.io.File(directory_tFileOutputDelimited_2);
+					if (!dir_tFileOutputDelimited_2.exists()) {
+						log.info("tFileOutputDelimited_2 - Creating directory '"
+								+ dir_tFileOutputDelimited_2.getCanonicalPath() + "'.");
+						dir_tFileOutputDelimited_2.mkdirs();
+						log.info("tFileOutputDelimited_2 - The directory '"
+								+ dir_tFileOutputDelimited_2.getCanonicalPath() + "' has been created successfully.");
+					}
+				}
+
+				// routines.system.Row
+				java.io.Writer outtFileOutputDelimited_2 = null;
+
+				java.io.File fileToDelete_tFileOutputDelimited_2 = new java.io.File(fileName_tFileOutputDelimited_2);
+				if (fileToDelete_tFileOutputDelimited_2.exists()) {
+					fileToDelete_tFileOutputDelimited_2.delete();
+				}
+				outtFileOutputDelimited_2 = new java.io.BufferedWriter(new java.io.OutputStreamWriter(
+						new java.io.FileOutputStream(fileName_tFileOutputDelimited_2, false), "ISO-8859-15"));
+				resourceMap.put("out_tFileOutputDelimited_2", outtFileOutputDelimited_2);
+
+				resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+				/**
+				 * [tFileOutputDelimited_2 begin ] stop
 				 */
 
 				/**
@@ -1450,9 +2351,12 @@ public class fais_test implements TalendJob {
 
 // ###############################
 // # Outputs initialization
-				int count_tets_tMap_1 = 0;
+				int count_out1_tMap_1 = 0;
 
-				tetsStruct tets_tmp = new tetsStruct();
+				out1Struct out1_tmp = new out1Struct();
+				int count_out2_tMap_1 = 0;
+
+				out2Struct out2_tmp = new out2Struct();
 // ###############################
 
 				/**
@@ -1478,16 +2382,16 @@ public class fais_test implements TalendJob {
 							log4jParamters_tFileInputDelimited_1.append("Parameters:");
 							log4jParamters_tFileInputDelimited_1.append("USE_EXISTING_DYNAMIC" + " = " + "false");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1
-									.append("FILENAME" + " = " + "\"C:/Users/mfaisal/Downloads/sample.csv\"");
+							log4jParamters_tFileInputDelimited_1.append(
+									"FILENAME" + " = " + "\"C:/Users/mfaisal/Downloads/customer_data_sample.csv\"");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
 							log4jParamters_tFileInputDelimited_1.append("CSV_OPTION" + " = " + "false");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
 							log4jParamters_tFileInputDelimited_1.append("ROWSEPARATOR" + " = " + "\"\\n\"");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("FIELDSEPARATOR" + " = " + "\";\"");
+							log4jParamters_tFileInputDelimited_1.append("FIELDSEPARATOR" + " = " + "\",\"");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append("HEADER" + " = " + "0");
+							log4jParamters_tFileInputDelimited_1.append("HEADER" + " = " + "1");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
 							log4jParamters_tFileInputDelimited_1.append("FOOTER" + " = " + "0");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
@@ -1505,10 +2409,10 @@ public class fais_test implements TalendJob {
 							log4jParamters_tFileInputDelimited_1.append(" | ");
 							log4jParamters_tFileInputDelimited_1.append("TRIMALL" + " = " + "false");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
-							log4jParamters_tFileInputDelimited_1.append(
-									"TRIMSELECT" + " = " + "[{TRIM=" + ("false") + ", SCHEMA_COLUMN=" + ("countries")
-											+ "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN=" + ("latitude") + "}, {TRIM="
-											+ ("false") + ", SCHEMA_COLUMN=" + ("longitude") + "}]");
+							log4jParamters_tFileInputDelimited_1.append("TRIMSELECT" + " = " + "[{TRIM=" + ("false")
+									+ ", SCHEMA_COLUMN=" + ("id") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN="
+									+ ("name") + "}, {TRIM=" + ("false") + ", SCHEMA_COLUMN=" + ("email") + "}, {TRIM="
+									+ ("false") + ", SCHEMA_COLUMN=" + ("phone") + "}]");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
 							log4jParamters_tFileInputDelimited_1.append("CHECK_FIELDS_NUM" + " = " + "false");
 							log4jParamters_tFileInputDelimited_1.append(" | ");
@@ -1541,7 +2445,7 @@ public class fais_test implements TalendJob {
 				int limit_tFileInputDelimited_1 = -1;
 				try {
 
-					Object filename_tFileInputDelimited_1 = "C:/Users/mfaisal/Downloads/sample.csv";
+					Object filename_tFileInputDelimited_1 = "C:/Users/mfaisal/Downloads/customer_data_sample.csv";
 					if (filename_tFileInputDelimited_1 instanceof java.io.InputStream) {
 
 						int footer_value_tFileInputDelimited_1 = 0, random_value_tFileInputDelimited_1 = -1;
@@ -1553,8 +2457,8 @@ public class fais_test implements TalendJob {
 					}
 					try {
 						fid_tFileInputDelimited_1 = new org.talend.fileprocess.FileInputDelimited(
-								"C:/Users/mfaisal/Downloads/sample.csv", "ISO-8859-15", ";", "\n", true, 0, 0,
-								limit_tFileInputDelimited_1, -1, false);
+								"C:/Users/mfaisal/Downloads/customer_data_sample.csv", "ISO-8859-15", ",", "\n", true,
+								1, 0, limit_tFileInputDelimited_1, -1, false);
 					} catch (java.lang.Exception e) {
 						globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE", e.getMessage());
 
@@ -1577,17 +2481,42 @@ public class fais_test implements TalendJob {
 
 							int columnIndexWithD_tFileInputDelimited_1 = 0;
 
+							String temp = "";
+
 							columnIndexWithD_tFileInputDelimited_1 = 0;
 
-							row1.countries = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							temp = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							if (temp.length() > 0) {
+
+								try {
+
+									row1.id = ParserUtils.parseTo_Integer(temp);
+
+								} catch (java.lang.Exception ex_tFileInputDelimited_1) {
+									globalMap.put("tFileInputDelimited_1_ERROR_MESSAGE",
+											ex_tFileInputDelimited_1.getMessage());
+									rowstate_tFileInputDelimited_1.setException(new RuntimeException(String.format(
+											"Couldn't parse value for column '%s' in '%s', value is '%s'. Details: %s",
+											"id", "row1", temp, ex_tFileInputDelimited_1), ex_tFileInputDelimited_1));
+								}
+
+							} else {
+
+								row1.id = null;
+
+							}
 
 							columnIndexWithD_tFileInputDelimited_1 = 1;
 
-							row1.latitude = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row1.name = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
 							columnIndexWithD_tFileInputDelimited_1 = 2;
 
-							row1.longitude = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+							row1.email = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
+
+							columnIndexWithD_tFileInputDelimited_1 = 3;
+
+							row1.phone = fid_tFileInputDelimited_1.get(columnIndexWithD_tFileInputDelimited_1);
 
 							if (rowstate_tFileInputDelimited_1.getException() != null) {
 								throw rowstate_tFileInputDelimited_1.getException();
@@ -1672,18 +2601,53 @@ public class fais_test implements TalendJob {
 								// ###############################
 								// # Output tables
 
-								tets = null;
+								out1 = null;
+								out2 = null;
 
-// # Output table : 'tets'
-								count_tets_tMap_1++;
+// # Output table : 'out1'
+// # Filter conditions 
+								if (
 
-								tets_tmp.countries = row1.countries;
-								tets_tmp.latitude = row1.latitude;
-								tets_tmp.longitude = row1.longitude;
-								tets = tets_tmp;
-								log.debug("tMap_1 - Outputting the record " + count_tets_tMap_1
-										+ " of the output table 'tets'.");
+								row1.email != null && row1.email.contains("@") && row1.phone != null
+										&& row1.phone.length() >= 10
 
+								) {
+									count_out1_tMap_1++;
+
+									out1_tmp.id = row1.id;
+									out1_tmp.name = row1.name;
+									out1_tmp.email = row1.email;
+									out1_tmp.phone = row1.phone;
+									out1 = out1_tmp;
+									log.debug("tMap_1 - Outputting the record " + count_out1_tMap_1
+											+ " of the output table 'out1'.");
+
+								} // closing filter/reject
+
+// # Output table : 'out2'
+// # Filter conditions 
+								if (
+
+								!(row1.email != null && row1.email.contains("@") && row1.phone != null
+										&& row1.phone.length() >= 10)
+
+								) {
+									count_out2_tMap_1++;
+
+									out2_tmp.id = row1.id;
+									out2_tmp.name = row1.name;
+									out2_tmp.email = row1.email;
+									out2_tmp.phone = row1.phone;
+									out2_tmp.error_messages = row1.email == null ? "Email kosong"
+											: !row1.email.contains("@") ? "Email tidak valid"
+													: row1.phone == null ? "Phone kosong"
+															: row1.phone.length() < 10 ? "Phone terlalu pendek"
+																	: "Unknown";
+									out2 = out2_tmp;
+									log.debug("tMap_1 - Outputting the record " + count_out2_tMap_1
+											+ " of the output table 'out2'.");
+
+								} // closing filter/reject
 // ###############################
 
 							} // end of Var scope
@@ -1706,83 +2670,171 @@ public class fais_test implements TalendJob {
 							 * [tMap_1 process_data_begin ] stop
 							 */
 
-// Start of branch "tets"
-							if (tets != null) {
+// Start of branch "out1"
+							if (out1 != null) {
 
 								/**
-								 * [tLogRow_1 main ] start
+								 * [tFileOutputDelimited_1 main ] start
 								 */
 
-								s(currentComponent = "tLogRow_1");
+								s(currentComponent = "tFileOutputDelimited_1");
+
+								cLabel = "valid_output";
 
 								if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
 
-										, "tets", "tMap_1", "tMap_1", "tMap", "tLogRow_1", "tLogRow_1", "tLogRow"
+										, "out1", "tMap_1", "tMap_1", "tMap", "tFileOutputDelimited_1", "valid_output",
+										"tFileOutputDelimited"
 
 								)) {
 									talendJobLogProcess(globalMap);
 								}
 
 								if (log.isTraceEnabled()) {
-									log.trace("tets - " + (tets == null ? "" : tets.toLogString()));
+									log.trace("out1 - " + (out1 == null ? "" : out1.toLogString()));
 								}
 
-///////////////////////		
+								StringBuilder sb_tFileOutputDelimited_1 = new StringBuilder();
+								if (out1.id != null) {
+									sb_tFileOutputDelimited_1.append(out1.id);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.name != null) {
+									sb_tFileOutputDelimited_1.append(out1.name);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.email != null) {
+									sb_tFileOutputDelimited_1.append(out1.email);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_tFileOutputDelimited_1);
+								if (out1.phone != null) {
+									sb_tFileOutputDelimited_1.append(out1.phone);
+								}
+								sb_tFileOutputDelimited_1.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_1);
 
-								String[] row_tLogRow_1 = new String[3];
+								nb_line_tFileOutputDelimited_1++;
+								resourceMap.put("nb_line_tFileOutputDelimited_1", nb_line_tFileOutputDelimited_1);
 
-								if (tets.countries != null) { //
-									row_tLogRow_1[0] = String.valueOf(tets.countries);
+								outtFileOutputDelimited_1.write(sb_tFileOutputDelimited_1.toString());
+								log.debug("tFileOutputDelimited_1 - Writing the record "
+										+ nb_line_tFileOutputDelimited_1 + ".");
 
-								} //
-
-								if (tets.latitude != null) { //
-									row_tLogRow_1[1] = String.valueOf(tets.latitude);
-
-								} //
-
-								if (tets.longitude != null) { //
-									row_tLogRow_1[2] = String.valueOf(tets.longitude);
-
-								} //
-
-								util_tLogRow_1.addRow(row_tLogRow_1);
-								nb_line_tLogRow_1++;
-								log.info("tLogRow_1 - Content of row " + nb_line_tLogRow_1 + ": "
-										+ TalendString.unionString("|", row_tLogRow_1));
-//////
-
-//////                    
-
-///////////////////////    			
-
-								tos_count_tLogRow_1++;
+								tos_count_tFileOutputDelimited_1++;
 
 								/**
-								 * [tLogRow_1 main ] stop
+								 * [tFileOutputDelimited_1 main ] stop
 								 */
 
 								/**
-								 * [tLogRow_1 process_data_begin ] start
+								 * [tFileOutputDelimited_1 process_data_begin ] start
 								 */
 
-								s(currentComponent = "tLogRow_1");
+								s(currentComponent = "tFileOutputDelimited_1");
+
+								cLabel = "valid_output";
 
 								/**
-								 * [tLogRow_1 process_data_begin ] stop
+								 * [tFileOutputDelimited_1 process_data_begin ] stop
 								 */
 
 								/**
-								 * [tLogRow_1 process_data_end ] start
+								 * [tFileOutputDelimited_1 process_data_end ] start
 								 */
 
-								s(currentComponent = "tLogRow_1");
+								s(currentComponent = "tFileOutputDelimited_1");
+
+								cLabel = "valid_output";
 
 								/**
-								 * [tLogRow_1 process_data_end ] stop
+								 * [tFileOutputDelimited_1 process_data_end ] stop
 								 */
 
-							} // End of branch "tets"
+							} // End of branch "out1"
+
+// Start of branch "out2"
+							if (out2 != null) {
+
+								/**
+								 * [tFileOutputDelimited_2 main ] start
+								 */
+
+								s(currentComponent = "tFileOutputDelimited_2");
+
+								cLabel = "invalid_output";
+
+								if (runStat.update(execStat, enableLogStash, iterateId, 1, 1
+
+										, "out2", "tMap_1", "tMap_1", "tMap", "tFileOutputDelimited_2",
+										"invalid_output", "tFileOutputDelimited"
+
+								)) {
+									talendJobLogProcess(globalMap);
+								}
+
+								if (log.isTraceEnabled()) {
+									log.trace("out2 - " + (out2 == null ? "" : out2.toLogString()));
+								}
+
+								StringBuilder sb_tFileOutputDelimited_2 = new StringBuilder();
+								if (out2.id != null) {
+									sb_tFileOutputDelimited_2.append(out2.id);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (out2.name != null) {
+									sb_tFileOutputDelimited_2.append(out2.name);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (out2.email != null) {
+									sb_tFileOutputDelimited_2.append(out2.email);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (out2.phone != null) {
+									sb_tFileOutputDelimited_2.append(out2.phone);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_tFileOutputDelimited_2);
+								if (out2.error_messages != null) {
+									sb_tFileOutputDelimited_2.append(out2.error_messages);
+								}
+								sb_tFileOutputDelimited_2.append(OUT_DELIM_ROWSEP_tFileOutputDelimited_2);
+
+								nb_line_tFileOutputDelimited_2++;
+								resourceMap.put("nb_line_tFileOutputDelimited_2", nb_line_tFileOutputDelimited_2);
+
+								outtFileOutputDelimited_2.write(sb_tFileOutputDelimited_2.toString());
+								log.debug("tFileOutputDelimited_2 - Writing the record "
+										+ nb_line_tFileOutputDelimited_2 + ".");
+
+								tos_count_tFileOutputDelimited_2++;
+
+								/**
+								 * [tFileOutputDelimited_2 main ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_begin ] start
+								 */
+
+								s(currentComponent = "tFileOutputDelimited_2");
+
+								cLabel = "invalid_output";
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_begin ] stop
+								 */
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_end ] start
+								 */
+
+								s(currentComponent = "tFileOutputDelimited_2");
+
+								cLabel = "invalid_output";
+
+								/**
+								 * [tFileOutputDelimited_2 process_data_end ] stop
+								 */
+
+							} // End of branch "out2"
 
 							/**
 							 * [tMap_1 process_data_end ] start
@@ -1814,7 +2866,7 @@ public class fais_test implements TalendJob {
 
 					}
 				} finally {
-					if (!((Object) ("C:/Users/mfaisal/Downloads/sample.csv") instanceof java.io.InputStream)) {
+					if (!((Object) ("C:/Users/mfaisal/Downloads/customer_data_sample.csv") instanceof java.io.InputStream)) {
 						if (fid_tFileInputDelimited_1 != null) {
 							fid_tFileInputDelimited_1.close();
 						}
@@ -1847,7 +2899,8 @@ public class fais_test implements TalendJob {
 // ###############################
 // # Lookup hashes releasing
 // ###############################      
-				log.debug("tMap_1 - Written records count in the table 'tets': " + count_tets_tMap_1 + ".");
+				log.debug("tMap_1 - Written records count in the table 'out1': " + count_out1_tMap_1 + ".");
+				log.debug("tMap_1 - Written records count in the table 'out2': " + count_out2_tMap_1 + ".");
 
 				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "row1", 2, 0,
 						"tFileInputDelimited_1", "tFileInputDelimited_1", "tFileInputDelimited", "tMap_1", "tMap_1",
@@ -1866,43 +2919,74 @@ public class fais_test implements TalendJob {
 				 */
 
 				/**
-				 * [tLogRow_1 end ] start
+				 * [tFileOutputDelimited_1 end ] start
 				 */
 
-				s(currentComponent = "tLogRow_1");
+				s(currentComponent = "tFileOutputDelimited_1");
 
-//////
+				cLabel = "valid_output";
 
-				java.io.PrintStream consoleOut_tLogRow_1 = null;
-				if (globalMap.get("tLogRow_CONSOLE") != null) {
-					consoleOut_tLogRow_1 = (java.io.PrintStream) globalMap.get("tLogRow_CONSOLE");
-				} else {
-					consoleOut_tLogRow_1 = new java.io.PrintStream(new java.io.BufferedOutputStream(System.out));
-					globalMap.put("tLogRow_CONSOLE", consoleOut_tLogRow_1);
+				if (outtFileOutputDelimited_1 != null) {
+					outtFileOutputDelimited_1.flush();
+					outtFileOutputDelimited_1.close();
 				}
 
-				consoleOut_tLogRow_1.println(util_tLogRow_1.format().toString());
-				consoleOut_tLogRow_1.flush();
-//////
-				globalMap.put("tLogRow_1_NB_LINE", nb_line_tLogRow_1);
-				if (log.isInfoEnabled())
-					log.info("tLogRow_1 - " + ("Printed row count: ") + (nb_line_tLogRow_1) + ("."));
+				globalMap.put("tFileOutputDelimited_1_NB_LINE", nb_line_tFileOutputDelimited_1);
+				globalMap.put("tFileOutputDelimited_1_FILE_NAME", fileName_tFileOutputDelimited_1);
 
-///////////////////////    			
+				resourceMap.put("finish_tFileOutputDelimited_1", true);
 
-				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "tets", 2, 0, "tMap_1",
-						"tMap_1", "tMap", "tLogRow_1", "tLogRow_1", "tLogRow", "output")) {
+				log.debug("tFileOutputDelimited_1 - Written records count: " + nb_line_tFileOutputDelimited_1 + " .");
+
+				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "out1", 2, 0, "tMap_1",
+						"tMap_1", "tMap", "tFileOutputDelimited_1", "valid_output", "tFileOutputDelimited", "output")) {
 					talendJobLogProcess(globalMap);
 				}
 
 				if (log.isDebugEnabled())
-					log.debug("tLogRow_1 - " + ("Done."));
+					log.debug("tFileOutputDelimited_1 - " + ("Done."));
 
-				ok_Hash.put("tLogRow_1", true);
-				end_Hash.put("tLogRow_1", System.currentTimeMillis());
+				ok_Hash.put("tFileOutputDelimited_1", true);
+				end_Hash.put("tFileOutputDelimited_1", System.currentTimeMillis());
 
 				/**
-				 * [tLogRow_1 end ] stop
+				 * [tFileOutputDelimited_1 end ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_2 end ] start
+				 */
+
+				s(currentComponent = "tFileOutputDelimited_2");
+
+				cLabel = "invalid_output";
+
+				if (outtFileOutputDelimited_2 != null) {
+					outtFileOutputDelimited_2.flush();
+					outtFileOutputDelimited_2.close();
+				}
+
+				globalMap.put("tFileOutputDelimited_2_NB_LINE", nb_line_tFileOutputDelimited_2);
+				globalMap.put("tFileOutputDelimited_2_FILE_NAME", fileName_tFileOutputDelimited_2);
+
+				resourceMap.put("finish_tFileOutputDelimited_2", true);
+
+				log.debug("tFileOutputDelimited_2 - Written records count: " + nb_line_tFileOutputDelimited_2 + " .");
+
+				if (runStat.updateStatAndLog(execStat, enableLogStash, resourceMap, iterateId, "out2", 2, 0, "tMap_1",
+						"tMap_1", "tMap", "tFileOutputDelimited_2", "invalid_output", "tFileOutputDelimited",
+						"output")) {
+					talendJobLogProcess(globalMap);
+				}
+
+				if (log.isDebugEnabled())
+					log.debug("tFileOutputDelimited_2 - " + ("Done."));
+
+				ok_Hash.put("tFileOutputDelimited_2", true);
+				end_Hash.put("tFileOutputDelimited_2", System.currentTimeMillis());
+
+				/**
+				 * [tFileOutputDelimited_2 end ] stop
 				 */
 
 			} // end the resume
@@ -1946,13 +3030,49 @@ public class fais_test implements TalendJob {
 				 */
 
 				/**
-				 * [tLogRow_1 finally ] start
+				 * [tFileOutputDelimited_1 finally ] start
 				 */
 
-				s(currentComponent = "tLogRow_1");
+				s(currentComponent = "tFileOutputDelimited_1");
+
+				cLabel = "valid_output";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_1") == null) {
+
+					java.io.Writer outtFileOutputDelimited_1 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_1");
+					if (outtFileOutputDelimited_1 != null) {
+						outtFileOutputDelimited_1.flush();
+						outtFileOutputDelimited_1.close();
+					}
+
+				}
 
 				/**
-				 * [tLogRow_1 finally ] stop
+				 * [tFileOutputDelimited_1 finally ] stop
+				 */
+
+				/**
+				 * [tFileOutputDelimited_2 finally ] start
+				 */
+
+				s(currentComponent = "tFileOutputDelimited_2");
+
+				cLabel = "invalid_output";
+
+				if (resourceMap.get("finish_tFileOutputDelimited_2") == null) {
+
+					java.io.Writer outtFileOutputDelimited_2 = (java.io.Writer) resourceMap
+							.get("out_tFileOutputDelimited_2");
+					if (outtFileOutputDelimited_2 != null) {
+						outtFileOutputDelimited_2.flush();
+						outtFileOutputDelimited_2.close();
+					}
+
+				}
+
+				/**
+				 * [tFileOutputDelimited_2 finally ] stop
 				 */
 
 			} catch (java.lang.Exception e) {
@@ -2346,7 +3466,7 @@ public class fais_test implements TalendJob {
 		org.slf4j.MDC.put("_startTimestamp", java.time.ZonedDateTime.now(java.time.ZoneOffset.UTC)
 				.format(java.time.format.DateTimeFormatter.ISO_INSTANT));
 		org.slf4j.MDC.put("_jobRepositoryId", "_cvs74CmGEfGCMouinO-g2Q");
-		org.slf4j.MDC.put("_compiledAtTimestamp", "2026-03-27T02:43:38.182551900Z");
+		org.slf4j.MDC.put("_compiledAtTimestamp", "2026-03-27T03:27:39.248823300Z");
 
 		java.lang.management.RuntimeMXBean mx = java.lang.management.ManagementFactory.getRuntimeMXBean();
 		String[] mxNameTable = mx.getName().split("@"); //$NON-NLS-1$
@@ -2814,6 +3934,6 @@ public class fais_test implements TalendJob {
 	ResumeUtil resumeUtil = null;
 }
 /************************************************************************************************
- * 93979 characters generated by Talend Big Data Platform on the March 27, 2026
- * at 9:43:38 AM WIB
+ * 129057 characters generated by Talend Big Data Platform on the March 27, 2026
+ * at 10:27:39 AM WIB
  ************************************************************************************************/
