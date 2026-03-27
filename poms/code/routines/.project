@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TALEND_GIT_TESTING_ROUTINES</name>
+=======
+	<name>TALEND_GIT_TRAINING_ROUTINES</name>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 	<comment></comment>
 	<projects>
 	</projects>
@@ -17,8 +21,14 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+<<<<<<< HEAD
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.talend.core.sourcesNature</nature>
+=======
+		<nature>org.talend.core.sourcesNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 	</natures>
 </projectDescription>

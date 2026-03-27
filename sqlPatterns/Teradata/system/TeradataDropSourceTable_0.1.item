@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 -- This template is just an example for the RC release, and will be modified in future version.
 
 -- DROP SOURCE TABLE
+=======
+-- This template is just an example for the RC release, and will be modified in future version.
+
+-- DROP SOURCE TABLE
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 DROP TABLE <%= __DATABASE_NAME__ %>.<%= __TABLE_NAME__ %>;

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>TALEND_GIT_TESTING</name>
+=======
+	<name>TALEND_GIT_TRAINING</name>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 	<comment></comment>
 	<projects>
 	</projects>
@@ -8,6 +12,9 @@
 	</buildSpec>
 	<natures>
 		<nature>org.talend.core.talendnature</nature>
+<<<<<<< HEAD
 		<nature>com.oaklandsw.transform.runtime.nature</nature>
+=======
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 	</natures>
 </projectDescription>

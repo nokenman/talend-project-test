@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 PROJECT_GROUPID=org.example.talend_git_testing
+=======
+PROJECT_GROUPID=org.example.talend_git_training
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 PROJECT_VERSION=8.0.1
 SKIP_LOOP_DEPENDENCY_CHECK=true
 eclipse.preferences.version=1

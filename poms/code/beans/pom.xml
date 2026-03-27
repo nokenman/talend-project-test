@@ -3,15 +3,26 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
+<<<<<<< HEAD
     <groupId>org.example.talend_git_testing</groupId>
+=======
+    <groupId>org.example.talend_git_training</groupId>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
     <artifactId>code.Master</artifactId>
     <version>8.0.1</version>
     <relativePath>../../</relativePath>
   </parent>
+<<<<<<< HEAD
   <groupId>org.example.talend_git_testing.bean</groupId>
   <artifactId>beans</artifactId>
   <version>8.0.1</version>
   <name>TALEND_GIT_TESTING Beans</name>
+=======
+  <groupId>org.example.talend_git_training.bean</groupId>
+  <artifactId>beans</artifactId>
+  <version>8.0.1</version>
+  <name>TALEND_GIT_TRAINING Beans</name>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
   <properties>
     <talend.codes.package>beans</talend.codes.package>
     <maven.compiler.failOnError>${codes.compile.failOnError}</maven.compiler.failOnError>
@@ -19,7 +30,11 @@
   </properties>
   <dependencies>
     <dependency>
+<<<<<<< HEAD
       <groupId>org.example.talend_git_testing.code</groupId>
+=======
+      <groupId>org.example.talend_git_training.code</groupId>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
       <artifactId>routines</artifactId>
       <version>8.0.1</version>
     </dependency>

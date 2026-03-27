@@ -2,6 +2,7 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+<<<<<<< HEAD
   <groupId>org.example.talend_git_testing</groupId>
   <artifactId>code.Master</artifactId>
   <version>8.0.1</version>
@@ -20,12 +21,24 @@
     <maven.compiler.target>17</maven.compiler.target>
     <compliance>17</compliance>
     <maven.deploy.skip>true</maven.deploy.skip>
+=======
+  <groupId>org.example.talend_git_training</groupId>
+  <artifactId>code.Master</artifactId>
+  <version>8.0.1</version>
+  <packaging>pom</packaging>
+  <name>TALEND_GIT_TRAINING Codes Master</name>
+  <url>http://www.talend.org/</url>
+  <properties>
+    <talend.project.name>TALEND_GIT_TRAINING</talend.project.name>
+    <encoding>UTF-8</encoding>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
   </properties>
   <build>
     <pluginManagement>
       <plugins>
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.3.1</version>
         </plugin>
         <plugin>
@@ -41,10 +54,23 @@
               <groupId>org.bouncycastle</groupId>
               <artifactId>bcpg-jdk18on</artifactId>
               <version>1.81</version>
+=======
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.6.1</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.shared</groupId>
+              <artifactId>maven-shared-utils</artifactId>
+              <version>3.3.3</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
             <dependency>
               <groupId>org.eclipse.tycho</groupId>
               <artifactId>tycho-compiler-jdt</artifactId>
+<<<<<<< HEAD
               <version>4.0.8</version>
               <exclusions>
                 <exclusion>
@@ -94,10 +120,19 @@
               <groupId>org.apache.commons</groupId>
               <artifactId>commons-compress</artifactId>
               <version>1.28.0</version>
+=======
+              <version>1.6.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>3.0.24</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
             <dependency>
               <groupId>commons-io</groupId>
               <artifactId>commons-io</artifactId>
+<<<<<<< HEAD
               <version>2.20.0</version>
             </dependency>
             <dependency>
@@ -112,11 +147,40 @@
             </dependency>
           </dependencies>
           <configuration>
+=======
+              <version>2.8.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-archiver</artifactId>
+              <version>3.6.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-compat</artifactId>
+              <version>3.8.1</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.commons</groupId>
+              <artifactId>commons-compress</artifactId>
+              <version>1.21</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-core</artifactId>
+              <version>3.8.1</version>
+            </dependency>
+          </dependencies>
+          <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             <compilerId>jdt</compilerId>
           </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.3.1</version>
           <dependencies>
             <dependency>
@@ -128,11 +192,35 @@
               <groupId>org.apache.commons</groupId>
               <artifactId>commons-lang3</artifactId>
               <version>3.18.0</version>
+=======
+          <version>3.0.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>3.0.24</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven.shared</groupId>
+              <artifactId>maven-shared-utils</artifactId>
+              <version>3.3.3</version>
+            </dependency>
+            <dependency>
+              <groupId>commons-io</groupId>
+              <artifactId>commons-io</artifactId>
+              <version>2.8.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-core</artifactId>
+              <version>3.8.1</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
           </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.5.0</version>
           <dependencies>
             <dependency>
@@ -193,10 +281,19 @@
               <groupId>commons-codec</groupId>
               <artifactId>commons-codec</artifactId>
               <version>1.19.0</version>
+=======
+          <version>3.0.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.shared</groupId>
+              <artifactId>maven-shared-utils</artifactId>
+              <version>3.3.3</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
             <dependency>
               <groupId>org.codehaus.plexus</groupId>
               <artifactId>plexus-utils</artifactId>
+<<<<<<< HEAD
               <version>4.0.0</version>
             </dependency>
             <dependency>
@@ -208,6 +305,34 @@
               <groupId>org.codehaus.plexus</groupId>
               <artifactId>plexus-interpolation</artifactId>
               <version>1.27</version>
+=======
+              <version>3.0.24</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.commons</groupId>
+              <artifactId>commons-compress</artifactId>
+              <version>1.21</version>
+            </dependency>
+            <dependency>
+              <groupId>commons-io</groupId>
+              <artifactId>commons-io</artifactId>
+              <version>2.8.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-archiver</artifactId>
+              <version>3.6.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-io</artifactId>
+              <version>3.0.1</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-core</artifactId>
+              <version>3.8.1</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
           </dependencies>
           <configuration>
@@ -218,6 +343,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.7.1</version>
           <dependencies>
             <dependency>
@@ -293,10 +419,24 @@
               <groupId>org.apache.commons</groupId>
               <artifactId>commons-lang3</artifactId>
               <version>3.18.0</version>
+=======
+          <version>3.0.0</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.shared</groupId>
+              <artifactId>maven-shared-utils</artifactId>
+              <version>3.3.3</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>3.0.24</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
             <dependency>
               <groupId>commons-codec</groupId>
               <artifactId>commons-codec</artifactId>
+<<<<<<< HEAD
               <version>1.19.0</version>
             </dependency>
             <dependency>
@@ -323,11 +463,40 @@
               <groupId>org.apache.maven</groupId>
               <artifactId>maven-archiver</artifactId>
               <version>3.6.5</version>
+=======
+              <version>1.15</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.commons</groupId>
+              <artifactId>commons-compress</artifactId>
+              <version>1.21</version>
+            </dependency>
+            <dependency>
+              <groupId>commons-io</groupId>
+              <artifactId>commons-io</artifactId>
+              <version>2.8.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-archiver</artifactId>
+              <version>3.6.0</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-compat</artifactId>
+              <version>3.8.1</version>
+            </dependency>
+            <dependency>
+              <groupId>org.apache.maven</groupId>
+              <artifactId>maven-core</artifactId>
+              <version>3.8.1</version>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
             </dependency>
           </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.5.4</version>
           <dependencies>
             <dependency>
@@ -361,6 +530,11 @@
               <version>1.8</version>
             </dependency>
             <dependency>
+=======
+          <version>2.20</version>
+          <dependencies>
+            <dependency>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
               <groupId>org.codehaus.plexus</groupId>
               <artifactId>plexus-utils</artifactId>
               <version>3.0.24</version>
@@ -370,6 +544,7 @@
               <artifactId>junit</artifactId>
               <version>4.13.2</version>
             </dependency>
+<<<<<<< HEAD
             <dependency>
               <groupId>org.apache.maven</groupId>
               <artifactId>maven-settings</artifactId>
@@ -390,19 +565,49 @@
               <artifactId>jcl-over-slf4j</artifactId>
               <version>${slf4j-api.version}</version>
             </dependency>
+=======
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
           </dependencies>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
+<<<<<<< HEAD
           <version>3.1.4</version>
         </plugin>
         <plugin>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>3.1.4</version>
+=======
+          <version>2.5.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>3.0.24</version>
+            </dependency>
+            <dependency>
+              <groupId>commons-codec</groupId>
+              <artifactId>commons-codec</artifactId>
+              <version>1.15</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.7</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-utils</artifactId>
+              <version>3.0.24</version>
+            </dependency>
+          </dependencies>
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
+<<<<<<< HEAD
   <profiles>
     <profile>
       <id>cloud-publisher</id>
@@ -946,4 +1151,6 @@
       </build>
     </profile>
   </profiles>
+=======
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 </project>

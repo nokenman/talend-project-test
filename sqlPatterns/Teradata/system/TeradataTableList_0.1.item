@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 -- This template is just an example for the RC release, and will be modified in future version.
 
 -- TableList
 SELECT TableName from DBC.TABLES
 WHERE databasename = '<%= __DATABASE_NAME__ %>'
+=======
+-- This template is just an example for the RC release, and will be modified in future version.
+
+-- TableList
+SELECT TableName from DBC.TABLES
+WHERE databasename = '<%= __DATABASE_NAME__ %>'
+>>>>>>> ea1064b551f4f5456d373da860d5d405a9aef7fb
 AND tablekind = 'T';
